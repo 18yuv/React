@@ -1339,3 +1339,8 @@ useEffect(() => {
 }, [gameWon])
 
 ```
+
+# react Toastify
+
+React Toastify is a popular React library that makes it easy to display toast notifications (small, unobtrusive pop-up messages) in a web application.
+like error or success messages.

@@ -400,12 +400,12 @@ const ninjaTurtles = ["Donatello", "Michaelangelo", "Rafael", "Leonardo"]
 }
 ```
 
-but can't render an object, you'll get an error, but it can render an jsx elemnet as an object,for ex:-
+but can't render an object, you'll get an error, but it can render a jsx elemnet as an object,for ex:-
 
 ```jsx
 export default function App() {
     const jsx = <h1>Donatello</h1>
-    conso
+    console.log(jsx)
     return ()
 }
 
@@ -740,7 +740,7 @@ useEffect(() => {
 ```
 
 
-Cleanup is cery important to not leave any bug, or loop holes:-
+Cleanup is very important to not leave any bug, or loop holes:-
 
 ```jsx
 React.useEffect(() => {
@@ -1339,4 +1339,3 @@ useEffect(() => {
 }, [gameWon])
 
 ```
-

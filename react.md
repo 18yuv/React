@@ -1199,6 +1199,17 @@ function App() {
 </nav>
 ```
 
+
+```jsx
+// example of how to navigate property can be used to re route to paths to same route:-
+<Routes>
+  <Route path='/' element={<Navigate to='/signup' />} />
+  <Route path='/signup' element={<Signup />} />
+  <Route path='/login' element={<Login />} />
+  <Route path='/home' element={<Home />} />
+</Routes>
+```
+
 # id Generator
 a third party unique id generator that can be used for a state:-
 

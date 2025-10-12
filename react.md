@@ -1203,7 +1203,7 @@ function App() {
 ```jsx
 // example of how to navigate property can be used to re route to paths to same route:-
 <Routes>
-  <Route path='/' element={<Navigate to='/signup' />} />
+  <Route path='/' element={<Navigate to='/signup' replace />} />
   <Route path='/signup' element={<Signup />} />
   <Route path='/login' element={<Login />} />
   <Route path='/home' element={<Home />} />

@@ -862,6 +862,70 @@ In React, the children prop is a special prop that represents the content you pu
 
 
 # Forms
+(Use react useForm, widely used, easy and efficient)
+```jsx
+import '../css/signup.css'
+import { Link } from 'react-router-dom'
+import { useForm } from "react-hook-form"
+import axios from "axios";
+
+export default function Signup() {
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+    } = useForm()
+
+    async function onSubmit(data) {
+        try {
+            const response = await axios.post("http://localhost:5000/auth/signup", data, {withCredentials:true})
+            console.log("Success:", response.data);
+        } catch (error) {
+            console.error("Error:", error.response?.data || error.message || "Signup Failed");
+        }
+    }
+
+    return (
+        <>
+            <h1>Signup</h1>
+            <form onSubmit={handleSubmit(onSubmit)} >
+
+                <label htmlFor="name">Full Name</label>
+                <input id="name" {...register("fullName", {
+                    required: { value: true, message: "Name is required" }
+                })} type="text" placeholder='Name' title='Name' />
+                {errors.fullName && <span>{errors.fullName.message}</span>}
+
+                <label htmlFor="email">Email</label>
+                <input id="email" {...register("email", {
+                    required: { value: true, message: "Email is required" },
+                    pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Enter a valid email address" },
+                })} type="email" placeholder='Email' title='Email' />
+                {errors.email && <span>{errors.email.message}</span>}
+
+                <label htmlFor="password">Password</label>
+                <input id="password" {...register("password", {
+                    required: { value: true, message: "Password is required" },
+                    pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])/, message: "Password must include uppercase, lowercase, number, and symbol" },
+                    minLength: { value: 6, message: "Password must be at least 6 characters long" },
+                    maxLength: { value: 20, message: "Password cannot exceed 20 characters" }
+                })}
+                    type="password" placeholder='Password' title='Password must be 6-20 characters' />
+                {errors.password && <span>{errors.password.message}</span>}
+
+                <button disabled={isSubmitting}>
+                    {isSubmitting ? "Signing in..." : "Submit"}
+                </button>
+
+                <p>Already exists? <Link to='/login'>Login</Link></p>
+            </form>
+        </>
+    )
+}
+```
+
+
 
 A basic jsx form with important attributes:-
 ```jsx
@@ -1146,6 +1210,20 @@ to avoid that we can use
 // don't use 
 {ingredients.length && <section>kuch bhi</section>} // will render a 0
 ```
+
+## Optional Chaining
+
+The ?. is called the optional chaining operator.
+
+It means:
+“If the value on the left exists and is not null or undefined, access the property on the right. Otherwise, return undefined.”
+
+```js
+error.response?.data
+```
+If error.response exists, you get data.
+If error.response is undefined (maybe the request never reached the server), it safely returns undefined instead of throwing an error.
+
 
 # Browser Router
 BrowserRouter is a router implementation that uses the HTML5 History API (pushState, replaceState, and the popstate event) to keep your UI in sync with the URL in the browser.

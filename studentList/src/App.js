@@ -1,7 +1,7 @@
-import React from "react";
 import Student from "./Student";
 
-const studentsData = [ // array of objects
+// array of objects
+const studentsData = [
   { name: "Yuvi", grade: "A (top)" , age:19},
   { name: "papu", grade: "B", age:20 },
   { name: "sourhadya", grade: "E (Fail)",age:19 },

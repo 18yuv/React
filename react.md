@@ -1381,7 +1381,6 @@ const className = clsx({
 })
 
 
-
 const className = clsx("chip", isLanguageLost && "lost") // always includes chip class in the className
 ```
 

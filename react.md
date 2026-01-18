@@ -1318,6 +1318,7 @@ when we click the background it disappers, ex -  a pop up
 ```
 
 
+
 ```jsx
 import ReactDom from 'react-dom'
 

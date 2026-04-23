@@ -236,6 +236,7 @@ import {something} from "./something.jsx"
 
 objects
 a data driven way to make the code writing proccess tidier and efficient 
+In React.js, props (short for "properties") are a mechanism used to pass data from a parent component to a child component. They are the primary way components communicate and are essential for making components dynamic and reusable.
 
 ### string props
 use ""
